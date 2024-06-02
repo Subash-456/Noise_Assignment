@@ -21,19 +21,22 @@ jobs:
       # Configure AWS credentials
       - name: Configure AWS Credentials
         run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region ${{ secrets.AWS_REGION }}
+          echo "Configured aws credentials"
+          #aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          #aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          #aws configure set region ${{ secrets.AWS_REGION }}
 
       # Authenticate Docker with Amazon ECR
       - name: Login to Amazon ECR
         run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+          echo "Logined to amazon ecr"
+          #aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
       # Pull Docker image from Amazon ECR
       - name: Pull Docker image from ECR
         run: |
-          docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
+          echo "pulled docker image from ecr"
+          #docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
 
       # Install containernetworking-plugins
       - name: Install containernetworking-plugins
@@ -75,14 +78,16 @@ jobs:
       # Start Minikube 
       - name: Start Minikube
         run: |
+          #minikube started
           #sudo systemctl start minikube
           #sudo minikube stop
-          sudo minikube start --driver=none --force
+          #sudo minikube start --driver=none --force
 
       # Deploy to Kubernetes
       - name: Deploy to Kubernetes
         run: |
+          #deployed to kubernetes
           #kubectl create deployment nginx-deployment --image=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
           #kubectl expose deployment nginx-deployment --type=NodePort --port=80
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
+          #kubectl apply -f deployment.yaml
+          #kubectl apply -f service.yaml
