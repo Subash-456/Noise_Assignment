@@ -39,12 +39,16 @@ This repository contains the solution for a DevOps assignment focused on managin
         wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
         sudo cp minikube-linux-amd64 /usr/local/bin/minikube
         ```
+![Screenshot 2024-05-31 225201](https://github.com/Subash-456/Noise_Assignment/assets/126191558/59415c39-2087-4eb8-bb47-5bf185527781)
+
 2. **Initialize Cluster:**
     - Create `cluster.yaml` file.
     - Deploy cluster using:
         ```
         kubectl apply -f cluster.yaml
         ```
+![Screenshot 2024-06-02 120519](https://github.com/Subash-456/Noise_Assignment/assets/126191558/8b3b6f2d-7d20-4c85-b13d-1472efd3fbc3)
+
 
 ### Docker and ECR Setup
 
@@ -54,6 +58,8 @@ This repository contains the solution for a DevOps assignment focused on managin
         ```
         docker build -t web-service .
         ```
+![Screenshot 2024-06-02 120707](https://github.com/Subash-456/Noise_Assignment/assets/126191558/f024a104-1ea4-4849-952c-725dc7f540c8)
+
 2. **Push Image to AWS ECR:**
     - Create ECR repository:
         ```
@@ -65,6 +71,8 @@ This repository contains the solution for a DevOps assignment focused on managin
         docker tag web-service:latest <aws_account_id>.dkr.ecr.us-west-2.amazonaws.com/web-service:latest
         docker push <aws_account_id>.dkr.ecr.us-west-2.amazonaws.com/web-service:latest
         ```
+![Screenshot 2024-06-01 142124](https://github.com/Subash-456/Noise_Assignment/assets/126191558/ff5223eb-a849-4cac-98cb-95bfca314889)
+
 
 ### Ingress Configuration
 
@@ -79,9 +87,13 @@ This repository contains the solution for a DevOps assignment focused on managin
         ```
         kubectl get pods -n kube-system | grep ingress
         ```
+![Screenshot 2024-06-02 121036](https://github.com/Subash-456/Noise_Assignment/assets/126191558/5ffc75bd-ddfa-40b0-af9c-727e05653fca)
+
 
 3. **Access Your Web Application:**
     - Open your web browser and go to http://subashnoise.com. You should see your web application being served.
+![Screenshot 2024-06-02 121227](https://github.com/Subash-456/Noise_Assignment/assets/126191558/437f67bb-c35b-4430-a580-7afffa6f2457)
+
 
 
 
@@ -93,3 +105,14 @@ This repository contains the solution for a DevOps assignment focused on managin
 
 ## Repository Structure
 ![Screenshot 2024-06-02 114815](https://github.com/Subash-456/Noise_Assignment/assets/126191558/6e76d01f-5587-476d-b8ad-ffcb81a103e8)
+
+## Conclusion
+
+This DevOps assignment provided an opportunity to gain practical experience in managing containerized applications using Kubernetes, AWS ECR, and CI/CD pipelines. By completing the objectives outlined in this assignment, I have successfully set up a microservices architecture, configured Kubernetes clusters, established Docker and ECR workflows, configured Ingress for managing external traffic, and implemented a CI/CD pipeline for continuous deployment using GitHub Actions.
+
+Through this assignment, I have demonstrated proficiency in key DevOps practices such as infrastructure automation, containerization, and continuous integration/continuous deployment. The completion of this assignment not only showcases my technical skills but also my ability to document and communicate the implementation process effectively.
+
+I welcome any feedback and suggestions for improvement. Contributions from the community are also encouraged to enhance the robustness and usability of this solution.
+
+Thank you for reviewing my DevOps assignment!
+
