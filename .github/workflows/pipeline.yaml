@@ -18,17 +18,22 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y awscli
 
-      
+      # Configure AWS credentials
+      - name: Configure AWS Credentials
+        run: |
+          aws configure set aws_access_key_id AKIAQ3EGTZKRITBLM3NZ
+          aws configure set aws_secret_access_key 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
+          aws configure set region us-east-1
 
       # Authenticate Docker with Amazon ECR
       - name: Login to Amazon ECR
         run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058264373922.dkr.ecr.us-east-1.amazonaws.com
 
       # Pull Docker image from Amazon ECR
       - name: Pull Docker image from ECR
         run: |
-          docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
+          docker pull 058264373922.dkr.ecr.us-east-1.amazonaws.com/my-web-service:latest
 
       # Install containernetworking-plugins
       - name: Install containernetworking-plugins
