@@ -92,5 +92,4 @@ This repository contains the solution for a DevOps assignment focused on managin
     - Pipeline configuration is defined in `pipeline.yaml`.
 
 ## Repository Structure
-![Uploading Screenshot 2024-06-02 101638.png…]()
-![Screenshot 2024-06-02 101627](https://github.com/Subash-456/Noise_Assignment/assets/126191558/0c50cdc5-a198-4b8f-8b48-41a08c799f44)
+![Screenshot 2024-06-02 114815](https://github.com/Subash-456/Noise_Assignment/assets/126191558/6e76d01f-5587-476d-b8ad-ffcb81a103e8)
